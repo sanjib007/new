@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .hvrbox {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            max-width: 100%;
+            height: auto;
+        }
+        .hvrbox img {
+            /*max-width: 100%;*/
+            width: 500px;
+
+        }
+        .hvrbox .hvrbox-layer_bottom {
+            display: block;
+        }
+        .hvrbox .hvrbox-layer_top {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.6);
+            color: #fff;
+            padding: 15px;
+            -moz-transition: all 0.4s ease-in-out 0s;
+            -webkit-transition: all 0.4s ease-in-out 0s;
+            -ms-transition: all 0.4s ease-in-out 0s;
+            transition: all 0.4s ease-in-out 0s;
+        }
+        .hvrbox:hover .hvrbox-layer_top,
+        .hvrbox.active .hvrbox-layer_top {
+            opacity: 1;
+        }
+        .hvrbox .hvrbox-text {
+            text-align: center;
+            font-size: 18px;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .hvrbox .hvrbox-text_mobile {
+            font-size: 15px;
+            border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+            border-top: 1px solid rgba(179, 179, 179, 0.7);
+            margin-top: 5px;
+            padding-top: 2px;
+            display: none;
+        }
+        .hvrbox.active .hvrbox-text_mobile {
+            display: block;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-sm-7">
+                <div class="hvrbox">
+                    <img src="image/1.jpg" alt="Mountains" class="hvrbox-layer_bottom">
+                    <div class="hvrbox-layer_top">
+                        <div class="hvrbox-text">
+                            <h2>Design graphique</h2>
+                            <h3>Imaginer des concepts</h3>
+<br>
+<br>
+<br>
+                            <p>SERVICES___________________________</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ligula porttitor, lacinia sapien non.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-5">
+
+                <blockquote class="blockquote">
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+
+                <p style="margin-top: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                </p>
+
+            </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="bootstrap-4.1.0/dist/js/bootstrap.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
