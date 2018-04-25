@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+</head>
+<style>
+    .plusDiv{
+        /*background-color: red;*/
+        background-color: rgba(255, 0, 0, 0.4);
+        width: 100px;
+        height: 100px;
+        /*opacity: 0.3;
+        filter: alpha(opacity=50); !* For IE8 and earlier *!*/
+        position: absolute;
+        left: 665px;
+        top: 500px;
+    }
+    .closeDiv{
+        /*background-color: red;*/
+        background-color: rgba(255, 0, 0, 0.4);
+        width: 100px;
+        height: 100px;
+        /*opacity: 0.3;
+        filter: alpha(opacity=50); !* For IE8 and earlier *!*/
+        position: absolute;
+        left: 665px;
+        top: 500px;
+    }
+    .closeDiv1{
+        /*background-color: red;*/
+        background-color: rgba(255, 0, 0, 0.7);
+        width: 750px;
+        height: 600px;
+    }
+    .backImage{
+        /*width: 750px;
+        height: 600px;*/
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 706.656px;
+    }
+    .bg_red{
+        background-color: rgba(255, 0, 0, 0.6);
+    }
+    .paddingRemove{
+        padding: 0;
+        margin: 0;
+    }
+    .blackBox{
+        text-align: center;
+        padding-top: 325px;
+        padding-bottom: 325px;
+        background: #000000;
+        color: #fff;
+    }
+    .innerText{
+        padding: 100px;
+        color: #fff;
+    }
+
+
+
+    body {
+        font-family: sans-serif;
+    }
+
+    .btn-round {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-square {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 476px;
+        top: 607px;
+        z-index: 9999;
+    }
+    .btn-square1 {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 858px;
+        top: 607px;
+        z-index: 9999;
+    }
+    .close {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        top: 25px;
+        left: -25px;
+        overflow: hidden;
+    }
+    .close::before, .close::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        margin-top: -1px;
+        background: #fff;
+    }
+    .close::before {
+        transform: rotate(0deg);
+    }
+    .close::after {
+        transform: rotate(90deg);
+    }
+
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes plusButton {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, -135deg);
+            transform: rotate3d(0, 0, 1, -135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: none;
+            transform: none;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    @keyframes plusButton {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: none;
+            transform: none;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    .plusButton {
+        -webkit-animation-name: plusButton;
+        animation-name: plusButton;
+    }
+
+    @-webkit-keyframes closeButton {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: none;
+            transform: none;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+        }
+    }
+    @keyframes closeButton {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: none;
+            transform: none;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+        }
+    }
+    .closeButton {
+        -webkit-animation-name: closeButton;
+        animation-name: closeButton;
+    }
+
+    @-webkit-keyframes circleShape {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+            border-radius: 100px;
+        }
+    }
+    @keyframes circleShape {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+            border-radius: 100px;
+        }
+    }
+    .circleShape {
+        -webkit-animation-name: circleShape;
+        animation-name: circleShape;
+    }
+
+    @-webkit-keyframes squareShape {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+            border-radius: 100px;
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 0px;
+        }
+    }
+    @keyframes squareShape {
+        from {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, 135deg);
+            transform: rotate3d(0, 0, 1, 135deg);
+            background-color: rgba(255, 0, 0, 0.6);
+            border-radius: 100px;
+        }
+        to {
+            -webkit-transform-origin: center;
+            transform-origin: center;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 0px;
+        }
+    }
+    .squareShape {
+        -webkit-animation-name: squareShape;
+        animation-name: squareShape;
+    }
+
+.leftDiv{
+    width: 576px;
+    float: left;
+}
+.rightDiv{
+    width: 476px;
+    float: left;
+}
+
+    .leftDiv1{
+        width: 958px;
+        float: left;
+    }
+    .rightDiv1{
+        width: 939px;
+        float: left;
+    }
+
+</style>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 paddingRemove">
+                    <div class="leftDiv1 backImage bg_red" style='background-image: url("image/3.jpg");'>
+                        <div>
+                            <div class="btn-square1">
+                                <span class="close"></span>
+                            </div>
+                            <div class="innerText">
+                                <h2>Design graphique</h2>
+                                <h3>Imaginer des concepts</h3>
+                                <br>
+                                <br>
+                                <br>
+                                <p>SERVICES___________________________</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="rightDiv1 paddingRemove">
+                        <div style="padding: 20px;">
+                            <h2>Studio de création</h2>
+                            <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
+
+                            <p style="margin-top: 90px;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            </p>
+                        </div>
+                        <!--<div class="blackBox">
+                            <h1>Stidio de Creation</h1>
+                        </div>-->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 paddingRemove">
+            <div class="rightDiv paddingRemove">
+                <div class="btn-square">
+                    <span class="close"></span>
+                </div>
+                <div style="padding: 20px;">
+                    <h2>Studio de création</h2>
+                    <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
+
+                    <p style="margin-top: 90px;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    </p>
+                </div>
+                <!--<div class="blackBox">
+                    <h1>Stidio de Creation</h1>
+                </div>-->
+
+            </div>
+            <div class="leftDiv backImage bg_red" style='background-image: url("image/3.jpg");'>
+                <div>
+                    <div class="innerText">
+                        <h2>Design graphique</h2>
+                        <h3>Imaginer des concepts</h3>
+                        <br>
+                        <br>
+                        <br>
+                        <p>SERVICES___________________________</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+            <div class="col-12 paddingRemove">
+                <div class="leftDiv backImage bg_red" style='background-image: url("image/3.jpg");'>
+                    <div>
+                        <div class="btn-square">
+                            <span class="close"></span>
+                        </div>
+                        <div class="innerText">
+                            <h2>Design graphique</h2>
+                            <h3>Imaginer des concepts</h3>
+                            <br>
+                            <br>
+                            <br>
+                            <p>SERVICES___________________________</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="rightDiv paddingRemove">
+                    <div style="padding: 20px;">
+                        <h2>Studio de création</h2>
+                        <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
+
+                        <p style="margin-top: 90px;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        </p>
+                    </div>
+                    <!--<div class="blackBox">
+                        <h1>Stidio de Creation</h1>
+                    </div>-->
+
+                </div>
+            </div>
+
+        </div>
+
+
+</div>
+
+
+
+
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="bootstrap-4.1.0/dist/js/bootstrap.js"></script>
+<script src="js/app.js"></script>
+<script>
+
+    $(function() {
+        //do something
+
+        $(".btn-round").click({animateIn: "closeButton", animateOut: "plusButton"}, animate_function);
+        $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
+        $(".btn-square1").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
+
+
+        function animate_function(event){
+            if( $(this).hasClass(event.data.animateIn) ) {
+                $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
+            }
+            else if( $(this).hasClass(event.data.animateOut) ) {
+                $(this).removeClass(event.data.animateOut).addClass(event.data.animateIn);
+            }
+            else {
+                $(this).addClass('animated ' + event.data.animateIn);
+            }
+        }
+
+        //end do something
+    });
+
+</script>
+
+</body>
+</html>
