@@ -63,7 +63,7 @@
         background: #000000;
         color: #fff;
     }
-    .innerText, .innerText1 .innerText2{
+    .innerText, .innerText1, .innerText2{
         padding: 100px;
         color: #fff;
     }
@@ -373,7 +373,7 @@
                 <div class="btn-square">
                     <span class="close"></span>
                 </div>
-                <div style="padding: 20px;">
+                <div class="leftpartHide" style="padding: 20px;">
                     <h2>Studio de création</h2>
                     <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
 
@@ -392,12 +392,12 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
                     </p>
                 </div>
-                <!--<div class="blackBox">
+                <div class="blackBox">
                     <h1>Stidio de Creation</h1>
-                </div>-->
+                </div>
 
             </div>
-            <div class="leftDiv backImage bg_red" style='background-image: url("image/3.jpg");'>
+            <div class="leftDiv backImage" style='background-image: url("image/3.jpg");'>
                 <div>
                     <div class="innerText">
                         <h2>Design graphique</h2>
@@ -487,6 +487,33 @@
 <script>
 
     $(function() {
+
+        $('.blackBox').hide();
+        $('.leftpartHide').show();
+        $('.innerText').hide();
+        $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
+        function animate_function(event){
+            debugger;
+            var info = $(this);
+            var sectionDIv  = info.closest('.sectionDiv');
+            sectionDIv.find('.blackBox').toggle();
+            sectionDIv.find('.leftpartHide').toggle();
+            sectionDIv.closest('.row').find('.backImage').toggleClass('bg_red');
+            sectionDIv.closest('.row').find(".innerText").toggle();
+
+            if( $(this).hasClass(event.data.animateIn) ) {
+                $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
+            }
+            else if( $(this).hasClass(event.data.animateOut) ) {
+                $(this).removeClass(event.data.animateOut).addClass(event.data.animateIn);
+            }
+            else {
+                $(this).addClass('animated ' + event.data.animateIn);
+            }
+        }
+
+
+
         //do something
         $('.blackBox1').hide();
         $('.innerText1').hide();
@@ -533,29 +560,6 @@
                 $(this).addClass('animated ' + event.data.animateIn);
             }
         }
-
-
-        $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
-        function animate_function(event){
-            var info = $(this);
-            var sectionDIv  = info.closest('.sectionDiv1');
-
-            sectionDIv.toggleClass('bg_red1');
-            /*sectionDIv.closest('.row').find('.blackBox1').toggle();
-            sectionDIv.find(".innerText").toggle();
-            sectionDIv.closest('.row').find('.rightshowDiv').toggle();*/
-
-            if( $(this).hasClass(event.data.animateIn) ) {
-                $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
-            }
-            else if( $(this).hasClass(event.data.animateOut) ) {
-                $(this).removeClass(event.data.animateOut).addClass(event.data.animateIn);
-            }
-            else {
-                $(this).addClass('animated ' + event.data.animateIn);
-            }
-        }
-
 
         $(".btn-round").click({animateIn: "closeButton", animateOut: "plusButton"}, animate_function);
 
