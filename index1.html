@@ -54,7 +54,8 @@
     }
     .paddingRemove{
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
+        width: 1200px;
     }
     .blackBox, .blackBox1, .blackBox2{
         text-align: center;
@@ -86,29 +87,38 @@
         width: 100px;
         height: 100px;
         background-color: rgba(255, 255, 255, 0.6);
-        position: absolute;
-        left: 476px;
-        top: 607px;
+       /* position: absolute;
+        left: 482px;
+        top: 607px;*/
         z-index: 9999;
+        float: left;
+        margin-top: 607px;
+
     }
     .btn-square1 {
         width: 100px;
         height: 100px;
         background-color: rgba(255, 255, 255, 0.6);
-        position: absolute;
-        left: 581px;
-        top: 607px;
+        /*position: absolute;
+        left: 588px;
+        top: 607px;*/
         z-index: 9999;
+        float: right;
+        margin-top: 607px;
+
     }
 
     .btn-square2 {
         width: 100px;
         height: 100px;
         background-color: rgba(255, 255, 255, 0.6);
-        position: absolute;
-        left: 476px;
-        top: 607px;
+        /*position: absolute;
+        left: 481px;
+        top: 607px;*/
         z-index: 9999;
+        float: right;
+        margin-top: 607px;
+
     }
     .close {
         position: relative;
@@ -290,21 +300,23 @@
     }
 
 .leftDiv{
-    width: 576px;
+    width: 581px;
     float: left;
 }
 .rightDiv{
-    width: 476px;
+    width: 482px;
     float: left;
 }
 
     .leftDiv1{
-        width: 681px;
+        /*width: 681px;*/
+        width: 51%;
         float: left;
     }
     .rightDiv1{
-        width: 668px;
-        float: left;
+        /*width: 668px;*/width: 49%;
+
+        float: right;
     }
 
 </style>
@@ -369,10 +381,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 paddingRemove">
-            <div class="rightDiv paddingRemove sectionDiv">
-                <div class="btn-square">
-                    <span class="close"></span>
-                </div>
+            <div class="rightDiv paddingRemove">
                 <div class="leftpartHide" style="padding: 20px;">
                     <h2>Studio de création</h2>
                     <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
@@ -397,7 +406,10 @@
                 </div>
 
             </div>
-            <div class="leftDiv backImage" style='background-image: url("image/3.jpg");'>
+            <div class="leftDiv backImage sectionDiv" style='background-image: url("image/3.jpg");'>
+                <div class="btn-square">
+                    <span class="close"></span>
+                </div>
                 <div>
                     <div class="innerText">
                         <h2>Design graphique</h2>
@@ -493,11 +505,10 @@
         $('.innerText').hide();
         $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
         function animate_function(event){
-            debugger;
             var info = $(this);
             var sectionDIv  = info.closest('.sectionDiv');
-            sectionDIv.find('.blackBox').toggle();
-            sectionDIv.find('.leftpartHide').toggle();
+            sectionDIv.closest('.row').find('.blackBox').toggle();
+            sectionDIv.closest('.row').find('.leftpartHide').toggle();
             sectionDIv.closest('.row').find('.backImage').toggleClass('bg_red');
             sectionDIv.closest('.row').find(".innerText").toggle();
 
