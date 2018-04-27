@@ -49,21 +49,21 @@
         background-repeat: no-repeat;
         height: 706.656px;
     }
-    .bg_red{
+    .bg_red, .bg_red1, .bg_red2{
         background-color: rgba(255, 0, 0, 0.6);
     }
     .paddingRemove{
         padding: 0;
         margin: 0;
     }
-    .blackBox{
+    .blackBox, .blackBox1, .blackBox2{
         text-align: center;
         padding-top: 325px;
         padding-bottom: 325px;
         background: #000000;
         color: #fff;
     }
-    .innerText{
+    .innerText, .innerText1 .innerText2{
         padding: 100px;
         color: #fff;
     }
@@ -72,6 +72,7 @@
 
     body {
         font-family: sans-serif;
+        color: #000000;
     }
 
     .btn-round {
@@ -96,6 +97,16 @@
         background-color: rgba(255, 255, 255, 0.6);
         position: absolute;
         left: 581px;
+        top: 607px;
+        z-index: 9999;
+    }
+
+    .btn-square2 {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 476px;
         top: 607px;
         z-index: 9999;
     }
@@ -301,12 +312,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 paddingRemove">
-            <div class="leftDiv1 backImage bg_red" style='background-image: url("image/3.jpg");'>
+            <div class="leftDiv1 backImage sectionDiv1" style='background-image: url("image/3.jpg");'>
                 <div>
                     <div class="btn-square1">
                         <span class="close"></span>
                     </div>
-                    <div class="innerText">
+                    <div class="innerText1">
                         <h2>Design graphique</h2>
                         <h3>Imaginer des concepts</h3>
                         <br>
@@ -325,7 +336,7 @@
 
             </div>
             <div class="rightDiv1 paddingRemove">
-                <div style="padding: 20px;">
+                <div style="padding: 20px;" class="rightshowDiv1">
                     <h2>Studio de création</h2>
                     <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
 
@@ -344,9 +355,9 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
                     </p>
                 </div>
-                <!--<div class="blackBox">
+                <div class="blackBox1">
                     <h1>Stidio de Creation</h1>
-                </div>-->
+                </div>
 
             </div>
         </div>
@@ -358,7 +369,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 paddingRemove">
-            <div class="rightDiv paddingRemove">
+            <div class="rightDiv paddingRemove sectionDiv">
                 <div class="btn-square">
                     <span class="close"></span>
                 </div>
@@ -411,12 +422,12 @@
     </div>
     <div class="row">
             <div class="col-12 paddingRemove">
-                <div class="leftDiv backImage bg_red" style='background-image: url("image/3.jpg");'>
+                <div class="leftDiv backImage sectionDiv2" style='background-image: url("image/3.jpg");'>
                     <div>
-                        <div class="btn-square">
+                        <div class="btn-square2">
                             <span class="close"></span>
                         </div>
-                        <div class="innerText">
+                        <div class="innerText2">
                             <h2>Design graphique</h2>
                             <h3>Imaginer des concepts</h3>
                             <br>
@@ -435,7 +446,7 @@
 
                 </div>
                 <div class="rightDiv paddingRemove">
-                    <div style="padding: 20px;">
+                    <div style="padding: 20px;" class="rightshowDiv2">
                         <h2>Studio de création</h2>
                         <h5>Design graphique, Webdesign & Photographie/Vidéo</h5>
 
@@ -454,9 +465,9 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
                         </p>
                     </div>
-                    <!--<div class="blackBox">
+                    <div class="blackBox2">
                         <h1>Stidio de Creation</h1>
-                    </div>-->
+                    </div>
 
                 </div>
             </div>
@@ -472,18 +483,22 @@
 
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="bootstrap-4.1.0/dist/js/bootstrap.js"></script>
-<script src="js/app.js"></script>
+
 <script>
 
     $(function() {
         //do something
-
-        $(".btn-round").click({animateIn: "closeButton", animateOut: "plusButton"}, animate_function);
-        $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
-        $(".btn-square1").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
-
-
-        function animate_function(event){
+        $('.blackBox1').hide();
+        $('.innerText1').hide();
+        $('.bg_red1').hide();
+        $(".btn-square1").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function1);
+        function animate_function1(event){
+            var info = $(this);
+            var sectionDIv  = info.closest('.sectionDiv1');
+            sectionDIv.toggleClass('bg_red1');
+            sectionDIv.find(".innerText1").toggle();
+            sectionDIv.closest('.row').find('.rightshowDiv1').toggle();
+            sectionDIv.closest('.row').find('.blackBox1').toggle();
             if( $(this).hasClass(event.data.animateIn) ) {
                 $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
             }
@@ -494,6 +509,55 @@
                 $(this).addClass('animated ' + event.data.animateIn);
             }
         }
+
+
+        $('.blackBox2').hide();
+        $('.innerText2').hide();
+        $('.bg_red2').hide();
+        $(".btn-square2").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function2);
+        function animate_function2(event){
+            var info = $(this);
+            var sectionDIv  = info.closest('.sectionDiv2');
+            sectionDIv.toggleClass('bg_red2');
+            sectionDIv.find(".innerText2").toggle();
+            sectionDIv.closest('.row').find('.rightshowDiv2').toggle();
+            sectionDIv.closest('.row').find('.blackBox2').toggle();
+
+            if( $(this).hasClass(event.data.animateIn) ) {
+                $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
+            }
+            else if( $(this).hasClass(event.data.animateOut) ) {
+                $(this).removeClass(event.data.animateOut).addClass(event.data.animateIn);
+            }
+            else {
+                $(this).addClass('animated ' + event.data.animateIn);
+            }
+        }
+
+
+        $(".btn-square").click({animateIn: "circleShape", animateOut: "squareShape"}, animate_function);
+        function animate_function(event){
+            var info = $(this);
+            var sectionDIv  = info.closest('.sectionDiv1');
+
+            sectionDIv.toggleClass('bg_red1');
+            /*sectionDIv.closest('.row').find('.blackBox1').toggle();
+            sectionDIv.find(".innerText").toggle();
+            sectionDIv.closest('.row').find('.rightshowDiv').toggle();*/
+
+            if( $(this).hasClass(event.data.animateIn) ) {
+                $(this).removeClass(event.data.animateIn).addClass(event.data.animateOut);
+            }
+            else if( $(this).hasClass(event.data.animateOut) ) {
+                $(this).removeClass(event.data.animateOut).addClass(event.data.animateIn);
+            }
+            else {
+                $(this).addClass('animated ' + event.data.animateIn);
+            }
+        }
+
+
+        $(".btn-round").click({animateIn: "closeButton", animateOut: "plusButton"}, animate_function);
 
         //end do something
     });
